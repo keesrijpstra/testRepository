@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body class="bg-gray-100 text-gray-800 m-10">
+        <div class="w-full md:w-2/3 mx-auto mb-4 flex justify-between items-center">
+            <div class="text-4xl">
+                <a href="{{ path('app_show_all') }}">
+                    <img src="/logo/logo-color.png" class="inline-block" style="width: 500px; height: 100px ">
+                </a>
+                {% block bread %}
+
+                {% endblock %}
+            </div>
+
+            <div class="text-right">
+                <div class="text-sm text-gray-500 dark:text-gray-400">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <div class="text-end">
+                        <a href="{{ path("app_show_add") }}">Add New</a>
+                    </div>
+                    <div class="text-end">
+                        <a href="{{ path("app_settings_profile") }}">Profile Settings</a>
+                    </div>
+                    <div><a href="{{ path('app_logout') }}" >Logout</a></div>
+                    {% else %}
+                    <div class="flex">
+                        <div class="mr-5"><a href="{{ path('app_login') }}">Login</a></div>
+                    </div>
+                        <div class="flex">
+                        <div class="mr-5"><a href="{{ path('app_register') }}">Register</a></div>
+                    </div>
+
+                    {% endif %}
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:w-2/3 mx-auto">
+            {% for post in app.flashes('success') %}
+                <div class="text-green-500 bg-green-500 border-green-300 rounded-md">{{ post }}</div>
+            {% endfor %}
+
+            {% block body %}{% endblock %}
+        </div>
+    </body>
+</html>

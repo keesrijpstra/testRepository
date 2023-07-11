@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome!{% endblock %}
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+
+{% block body %}
+
+    {{ include('settings_profile/_settings_profile_tabs.html.twig') }}
+    <div class="flex items-center">
+        {{ include('shared/_avatar.html.twig', {'size': 32, profile: app.user.userProfile}) }}
+        <div class="ml-8">
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            {{ form_label(form.profileImage, 'Change', {'label_attr': {'class': 'shadow-sm border-transparent bg-gray-300 hover:bg-gray-400 cursor-pointer rounded-md border p-2'}}) }}
+            {{ form_widget(form.profileImage, {'attr': {'class': 'hidden'}}) }}
+            {{ form_errors(form.profileImage) }}
+        </div>
+    </div>
+
+    <div>
+        <button type="submit" class="bock w-full shadow-sm border-transparent bg-indigo-600 hover:bg-indigo-400 rounded-md border p-2 mt-4 mb-2">Save Changes</button>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

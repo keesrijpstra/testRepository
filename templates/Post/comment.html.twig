@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title%}Post - Add Comment{% endblock %}
+
+{% block bread %}
+    -> <a href="{{ path('app_show_one', {post: post.id}) }}">Post -> Comment</a>
+{% endblock %}
+
+{% block body %}
+    {{ include('Post/_post.html.twig', {post: post}) }}
+
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        <div>
+            {{ form_errors(form) }}
+        </div>
+
+        <div>
+            {{ form_label(form.text, 'Please enter a comment', {'label_attr': {'class': 'block text-sm text-gray-700'}}) }}
+            {{ form_widget(form.text, {'attr': {'class': 'block w-full shadow-sm border-gray-300'}}) }}
+            {{ form_errors(form.text) }}
+            {{ form_label(form.commentImage, 'Change', {'label_attr': {'class': 'shadow-sm border-transparent bg-gray-300 hover:bg-gray-400 cursor-pointer rounded-md border p-2'}}) }}
+            {{ form_widget(form.commentImage, {'attr': {'class': 'hidden'}}) }}
+            {{ form_errors(form.commentImage) }}
+
+        </div>
+        {% if comment is defined %}
+        <div>
+            <div>
+                <a href="{{ path('app_delete_comment', {id: comment.id}) }}">
+                    <span class="px-2 rounded-md bg-gray-200">Delete</span>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+
+
+    <div>
+            <button type="submit" class="bock w-full shadow-sm border-transparent bg-indigo-600 hover:bg-indigo-400 rounded-md border p-2 mt-4 mb-2">Save</button>
+        </div>
+
+        {{ form_end(form) }}
+
+{% endblock %}

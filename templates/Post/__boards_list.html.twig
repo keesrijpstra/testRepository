@@ -1,0 +1,7 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+{% for board in posts %}
+    <div><a href="{{ path('app_show_posts_by_board', {'board': board.id}) }}">{{ board.name }}</a>
+
+    </div>
+{% endfor %}
+</div>

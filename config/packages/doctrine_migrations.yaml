@@ -1,0 +1,15 @@
+doctrine_migrations:
+    migrations_paths:
+        'DoctrineMigrations': '%kernel.project_dir%/migrations'
+    enable_profiler: false
+
+    storage:
+        table_storage:
+            table_name: 'migration_versions'
+            version_column_name: 'version'
+            executed_at_column_name: 'executed_at'
+            execution_time_column_name: 'execution_time'
+
+services:
+    # Move the service to the "DoctrineMigrations" namespace
+    DoctrineMigrations\App\Repository\PostRepository: '@doctrine.orm.default_entity_manager'

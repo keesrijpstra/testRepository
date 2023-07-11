@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    <div>
+        {{ form_errors(form) }}
+    </div>
+    <div>
+        {{ form_label(form.board, 'Please enter the category board', {'label_attr': {'class': 'block text-sm text-gray-700'}}) }}
+        {{ form_widget(form.board, {'attr': {'class': 'block w-full shadow-sm border-gray-300'}}) }}
+        {{ form_errors(form.board) }}
+    </div>
+    <div>
+        {{ form_label(form.title, 'Please enter the title', {'label_attr': {'class': 'block text-sm text-gray-700'}}) }}
+        {{ form_widget(form.title, {'attr': {'class': 'block w-full shadow-sm border-gray-300'}}) }}
+        {{ form_errors(form.title) }}
+    </div>
+
+    <div>
+        {{ form_label(form.content, 'Please enter the post text', {'label_attr': {'class': 'block text-sm text-gray-700'}}) }}
+        {{ form_widget(form.content, {'attr': {'class': 'block w-full shadow-sm border-gray-300'}}) }}
+        {{ form_errors(form.content) }}
+
+    </div>
+
+    <div class="flex">
+        <div>
+            {{ form_label(form.postImage, 'Change', {'label_attr': {'class': 'shadow-sm border-transparent bg-gray-300 hover:bg-gray-400 cursor-pointer rounded-md border p-2'}}) }}
+            {{ form_widget(form.postImage, {'attr': {'class': 'hidden'}}) }}
+            {{ form_errors(form.postImage) }}
+        </div>
+        {% if post is defined %}
+        <div>
+            <a href="{{ path('app_delete', {id: post.id}) }}">
+                 <span class="px-2 rounded-md bg-gray-200">Delete</span>
+            </a>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <div>
+        <button type="submit" class="bock w-full shadow-sm border-transparent bg-indigo-600 hover:bg-indigo-400 rounded-md border p-2 mt-4 mb-2">Save</button>
+    </div>
+
+{{ form_end(form) }}
+{% endblock %}

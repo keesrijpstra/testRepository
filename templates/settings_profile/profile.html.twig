@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome!{% endblock %}
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+
+{% block body %}
+
+    {{ include('settings_profile/_settings_profile_tabs.html.twig') }}
+    {{ form_start(form) }}
+    {{ include ('settings_profile/_profile_form.html.twig') }}
+    <div>
+        <button type="submit" class="bock w-full shadow-sm border-transparent bg-indigo-600 hover:bg-indigo-400 rounded-md border p-2 mt-4 mb-2">Save settings</button>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,6 @@
+{% if post.image is defined and post.image is not null%}
+    <img src="{{ postShortcut ~ post.image }}" class="inline-block" style="height: {{ size }}px; width: {{ size }}px;">
+
+{% else %}
+
+{% endif %}

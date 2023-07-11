@@ -1,0 +1,40 @@
+<div class="flex mb-4">
+    <div class="mr-5">
+        <div class="text-2xl">
+            <a href="{{ path('app_show_one', { post: post.id}) }}"><h1>{{ post.title }}</h1></a>
+        </div>
+        <div class="text-xl">
+            <h1>{{ post.content }}</h1>
+        </div>
+        <div class="text-gray-500">
+            {{ post.creationDate | date("M j, Y") }}
+        </div>
+        <div>
+            {% if post.likedBy.contains(app.user) %}
+                <a href="{{ path('app_unlike', {id: post.id}) }}">
+                    DisLike <span class="px-2 rounded-md bg-gray-200">{{ post.likedBy.count }}</span>
+                </a>
+            {% else %}
+                <a href="{{ path('app_like', {id: post.id}) }}">
+                    Like <span class="px-2 rounded-md bg-gray-200">{{ post.likedBy.count }}</span>
+                </a>
+            {% endif %}
+        </div>
+        <div class="text-sm text-gray-500">
+            <a href="{{ path('app_profile', { id: post.author.id})  }}">{{ post.author.email }}</a>
+        </div>
+        <div class="flex">
+            {% if post.author == app.user %}
+                <a href="{{ path('app_show_edit', {post: post.id}) }}" class="mr-1.5">Edit</a>
+            {% endif %}
+            <a href="{{ path('app_add_comment', {post: post.id}) }}">Reply <span class="px-2 rounded-md bg-gray-200">{{ post.comments.count }}</span></a>
+        </div>
+    </div>
+    <div>
+        <div>
+            {{ include('shared/_post_image.html.twig', {size: 100}) }}
+        </div>
+    </div>
+
+
+</div>

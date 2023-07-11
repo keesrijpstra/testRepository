@@ -1,0 +1,54 @@
+<div class="flex items-center">
+    {% embed 'shared/_tabs.html.twig'%}
+        {% block tabs %}
+            {% embed 'shared/_tab.html.twig' with { route: 'app_show_all'}%}
+                {% block content %}
+                    All posts <span class="px-3 rounded-md bg-gray-200"></span>
+                {% endblock %}
+                {% block path %}
+                {{ path('app_show_all') }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+
+    {% embed 'shared/_tabs.html.twig'%}
+        {% block tabs %}
+            {% embed 'shared/_tab.html.twig' with { route: 'app_show_top-liked', classes: 'ml-2'}%}
+                {% block content %}
+                    Top Liked <span class="px-3 rounded-md bg-gray-200"></span>
+                {% endblock %}
+                {% block path %}
+                    {{ path('app_show_top-liked') }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+
+    {% embed 'shared/_tabs.html.twig'%}
+        {% block tabs %}
+            {% embed 'shared/_tab.html.twig' with { route: 'app_show_post_follows', classes: 'ml-2'}%}
+                {% block content %}
+                    From People You follow <span class="px-3 rounded-md bg-gray-200"></span>
+                {% endblock %}
+                {% block path %}
+                    {{ path('app_show_post_follows') }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+
+    {% embed 'shared/_tabs.html.twig'%}
+        {% block tabs %}
+            {% embed 'shared/_tab.html.twig' with { route: 'app_show_post_boards', classes: 'ml-2'}%}
+                {% block content %}
+                    Boards <span class="px-3 rounded-md bg-gray-200"></span>
+                {% endblock %}
+                {% block path %}
+                    {{ path('app_show_post_boards') }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+
+</div>
