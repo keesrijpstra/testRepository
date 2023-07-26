@@ -3,7 +3,7 @@ mysql:
   disk: 2048
 
 adminer:
-  type: phpmyadmin:latest
+  type: "pierre-alain-b/adminer"
 
 mailer:
   type: mailhog:latest
