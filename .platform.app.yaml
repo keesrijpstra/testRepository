@@ -7,3 +7,8 @@ web:
     '/':
       root: 'public'
       passthru: '/index.php'
+
+dependencies:
+  php:
+    composer/composer: "^2"
+
