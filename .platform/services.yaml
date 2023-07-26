@@ -2,9 +2,3 @@ mysql:
   type: mariadb:10.6
   disk: 2048
 
-adminer:
-  type: "pierre-alain-b/adminer"
-
-mailer:
-  type: mailhog:latest
-  disk: 512
