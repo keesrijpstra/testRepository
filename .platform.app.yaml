@@ -12,3 +12,6 @@ dependencies:
   php:
     composer/composer: "^2"
 
+relationships:
+  database: "mysql:mysql"
+

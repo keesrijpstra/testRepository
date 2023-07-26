@@ -1,0 +1,10 @@
+mysql:
+  type: mariadb:10.8
+  disk: 2048
+
+adminer:
+  type: phpmyadmin:latest
+
+mailer:
+  type: mailhog:latest
+  disk: 512
