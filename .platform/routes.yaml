@@ -1,2 +1,2 @@
-"https://{all}/": { type: upstream, upstream: "app:http" }
+"https://{all}/": { type: upstream, upstream: "your-symfony-app:http" }
 "http://{all}/": { type: redirect, to: "https://{all}/" }
