@@ -1,0 +1,4 @@
+mysql:
+  type: mariadb:10.6
+  disk: 2048
+

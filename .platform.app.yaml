@@ -1,0 +1,17 @@
+# .platform.app.yaml
+name: 'your-symfony-app'
+type: 'php:8.1'
+disk: 2048
+web:
+  locations:
+    '/':
+      root: 'public'
+      passthru: '/index.php'
+
+dependencies:
+  php:
+    composer/composer: "^2"
+
+relationships:
+  database: "mysql:mysql"
+
