@@ -13,5 +13,5 @@ dependencies:
     composer/composer: "^2"
 
 relationships:
-  database: "database1:mariadb:10.6"
+  database: "database1:mariadb"
 
