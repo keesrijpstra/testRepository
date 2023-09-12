@@ -13,5 +13,5 @@ dependencies:
     composer/composer: "^2"
 
 relationships:
-  database: "mysql:mysql"
+  database: "database1:mariadb"
 
