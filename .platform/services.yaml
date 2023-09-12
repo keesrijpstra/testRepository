@@ -1,4 +1,4 @@
 database1:
-  type: mariadb:10.6
+  type: mariadb
   disk: 2048
 
